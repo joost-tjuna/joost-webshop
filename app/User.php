@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'voornaam', 'achternaam', 'straatnaam','huisnummer', 'postcode','woonplaats','telefoonnr','email','username','password'
+        'name', 'streetname','streetnumber', 'zipcode','abode','phonenumber','email','username','password'
     ];
 
     /**
@@ -27,20 +27,3 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 }
-
-/*
-CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `voornaam` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `achternaam` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `straatnaam` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `huisnummer` int(11) NOT NULL,
-  `postcode` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `woonplaats` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telefoonnr` int(11) NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;*/

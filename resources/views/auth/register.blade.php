@@ -8,49 +8,20 @@
                 <div class="panel-heading">
                     <h1>Register</h1>
                 </div>
+
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-<!-- - - - - - - - - - - - - - - - - - - - - - - firstname (voornaam) - - - - - - - - - - - - - - - - - - - - - - -->
-                        <div class="register-label form-group">
-                            <label for="voornaam" class="col-md-3 control-label">Voornaam</label>
 
-                            <div class="col-md-5">
-                                <input id="voornaam" type="text" class="form-control" name="voornaam"  required autofocus>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-3 control-label">Voornaam + achternaam:</label>
+
+                           <div class="col-md-5">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - lastname (achternaam) - - -  - - - - - - - - - - - - - - - - - - - -->
-                        <div class="register-label form-group">
-                            <label for="achternaam" class="col-md-3 control-label">Achternaam</label>
-
-                            <div class="col-md-5">
-                                <input id="achternaam" type="text" class="form-control" name="achternaam" required autofocus>
- 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - Email - - -  - - - - - - - - - - - - - - - - - - - -->
-                        <div class="register-label form-group">
-                            <label for="email" class="col-md-3 control-label">E-Mail Adres</label>
-
-                            <div class="col-md-5">
-                                <input id="email" type="email" class="form-control" name="email"  required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -58,10 +29,10 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - street name (straatnaam) - - -  - - - - - - - - - - - - - - - - - - - -->
                         <div class="register-label form-group">
-                            <label for="straatnaam" class="col-md-3 control-label">Straatnaam</label>
+                            <label for="streetname" class="col-md-3 control-label">Straatnaam</label>
 
                             <div class="col-md-5">
-                                <input id="straatnaam" type="text" class="form-control" name="straatnaam" required >
+                                <input id="streetname" type="text" class="form-control" name="streetname" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -71,12 +42,12 @@
                             </div>
                         </div>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - House number (Huisnummer) - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - street number (Huisnummer) - - - - - - - - - - - - - - - - - - - - - - -->
                         <div class="register-label form-group">
-                            <label for="huisnummer" class="col-md-3 control-label">Huisnummer</label>
+                            <label for="streetnumber" class="col-md-3 control-label">Huisnummer</label>
 
                             <div class="col-md-5">
-                                <input style="width:70px;" id="huisnummer" type="number" class="form-control" name="huisnummer" required >
+                                <input style="width:70px;" id="streetnumber" type="number" class="form-control" name="streetnumber" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -88,10 +59,10 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - Zipcode (postcode) - - -  - - - - - - - - - - - - - - - - - - - -->
                         <div class="register-label form-group">
-                            <label for="postcode" class="col-md-3 control-label">Postcode</label>
+                            <label for="zipcode" class="col-md-3 control-label">Postcode</label>
 
                             <div class="col-md-5">
-                                <input id="postcode" type="text" class="form-control" name="postcode" required >
+                                <input id="zipcode" type="text" class="form-control" name="zipcode" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -103,10 +74,10 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - abode (woonplaats) - - -  - - - - - - - - - - - - - - - - - - - -->
                         <div class="register-label form-group">
-                            <label for="woonplaats" class="col-md-3 control-label">Woonplaats</label>
+                            <label for="abode" class="col-md-3 control-label">Woonplaats</label>
 
                             <div class="col-md-5">
-                                <input id="woonplaats" type="text" class="form-control" name="woonplaats" required >
+                                <input id="abode" type="text" class="form-control" name="abode" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -118,40 +89,39 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - Phone number (telefoon nummer) - - - - - - - - - - - - - - - - - - - - - - -->
                         <div class="register-label form-group">
-                            <label for="telefoonnr" class="col-md-3 control-label">Telefoon nummer</label>
+                            <label for="phonenumber" class="col-md-3 control-label">Telefoon nummer</label>
+                              <div class="col-md-5">
+                                 <input id="phonenumber" type="number" class="form-control" name="phonenumber" required >
 
-                            <div class="col-md-5">
-                                <input id="telefoonnr" type="number" class="form-control" name="telefoonnr" required >
-
-                                @if ($errors->has('name'))
+                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                 @endif
+                              </div>
+                        </div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - E-mail address - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - -->
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-3 control-label">E-Mail Adres</label>
+
+                            <div class="col-md-5">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - Username (Gebruikers naam) - - - - - - - - - - - - - - - - - - - - - - -->
-                        <div class="register-label form-group">
-                            <label for="gebruikersnaam" class="col-md-3 control-label">Gebruikersnaam</label>
+<!-- - - - - - - - - - - - - - - - - - - - - - - password (wachtwoord) - - - - - - - - - - - - - - - - - - - - - - -->
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-3 control-label">Wachtwoord</label>
 
                             <div class="col-md-5">
-                                <input id="gebruikersnaam" type="text" class="form-control" name="gebruikersnaam" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - Password (wachtwoord) - - - - - - - - - - - - - - - - - - - - - - -->
-                        <div class="register-label form-group">
-                            <label for="wachtwoord" class="col-md-3 control-label">Wachtwoord</label>
-
-                            <div class="col-md-5">
-                                <input id="wachtwoord" type="password" class="form-control" name="wachtwoord" required>
+                                <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -161,8 +131,7 @@
                             </div>
                         </div>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - Confirm password (herhaal wachtwoord) - - - - - - - - - - - - - - - - - - - - - - -->
-                        <div class="register-label form-group">
+                        <div class="form-group">
                             <label for="password-confirm" class="col-md-3 control-label">Herhaal wachtwoord</label>
 
                             <div class="col-md-5">

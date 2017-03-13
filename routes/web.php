@@ -15,3 +15,7 @@ Route::get('/products/product', 'PageController@showProduct');
 Route::get('/about-us', 'PageController@aboutUs');
 
 Route::get('/contact', 'PageController@contact');
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
+Auth::routes();

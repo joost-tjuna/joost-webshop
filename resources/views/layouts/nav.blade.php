@@ -21,7 +21,7 @@
               <ul class="navbar-nav mr-auto login">
                 @if (Auth::check())
                   <li>
-                    <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                    <a class="nav-link" href="{{ url('/logout') }}">logout</a>
                   </li>
                 @else
                   <li class="nav-item">

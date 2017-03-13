@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,15 +48,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'voornaam' => 'required|max:122',
-            'achternaam' => 'required|max:122',
-            'straatnaam' => 'required|max:200',
-            'postcode' => 'required|max:100',
-            'huisnummer' => 'required|max:100',
-            'telefoonnr' => 'required|max:100',
-            'woonplaats' => 'required|max:255',
+            'name' => 'required|max:122',
+            'streetname' => 'required|max:200',
+            'zipcode' => 'required|max:100',
+            'streetnumber' => 'required|max:100',
+            'phonenumber' => 'required|max:100',
+            'abode' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'wachtwoord' => 'required|min:6|confirmed'
+            'password' => 'required|min:6|confirmed'
 
         ]);
     }
@@ -69,19 +68,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd('create');
-        $user = User::create([
-            'voornaam' => $data['voornaam'],
-            'achternaam' => $data['achternaam'],
-            'straatnaam' => $data['straatnaam'],
-            'postcode' => $data['postcode'],
-            'huisnummer' => $data['huisnummer'],
-            'telefoonnr' => $data['telefoonnr'],
-            'woonplaats' => $data['woonplaats'],
-            'email' => $data['email'],
-            'wachtwoord' => bcrypt($data['wachtwoord'])
-        ]);
 
-        dd($user);
+        return User::create([
+            'name' => $data['name'],
+            'streetname' => $data['streetname'],
+            'zipcode' => $data['zipcode'],
+            'streetnumber' => $data['streetnumber'],
+            'phonenumber' => $data['phonenumber'],
+            'abode' => $data['abode'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password'])
+        ]);
     }
 }
