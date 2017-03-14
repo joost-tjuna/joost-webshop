@@ -11,6 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+    	$image = '/images/kitty.jpg';
+        DB::table('product')->insert([
+            'name' => str_random(10),
+            'stock' => str_random(10),
+            'price' => str_random(10),
+            'picture' => $image(10),
+            'description' => str_random(10),
+        ]);
     }
 }

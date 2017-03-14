@@ -9,8 +9,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/products', 'PageController@show');
-Route::get('/products/product', 'PageController@showProduct');
+Route::get('/products', 'ProductController@index');
+Route::get('/products/{id}', 'ProductController@show');
 
 Route::get('/about-us', 'PageController@aboutUs');
 
