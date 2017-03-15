@@ -42,7 +42,7 @@ class LoginController extends Controller
 
         auth()->logout();
 
-        return redirect()->back();
+        return redirect('/');
         
     }
 }

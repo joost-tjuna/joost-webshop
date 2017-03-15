@@ -28,4 +28,9 @@ class PageController extends Controller
     {
         return view('pages.product');
     }
+
+    public function manage()
+    {
+        return view('pages.manage');
+    }
 }

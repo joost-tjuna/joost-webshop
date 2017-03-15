@@ -21,6 +21,12 @@
               <ul class="navbar-nav mr-auto login">
                 @if (Auth::check())
                   <li>
+                    <a class="nav-link" href="{{ url('/cart') }}">winkelmandje <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span></a>
+                  </li>
+                  <li>
+                    <a class="nav-link" href="{{ url('/profiel') }}">{{Auth::user()->name}}</a>
+                  </li>
+                  <li>
                     <a class="nav-link" href="{{ url('/logout') }}">logout</a>
                   </li>
                 @else

@@ -20,13 +20,19 @@
 					<li>
 						<p>€{{$product->price}}</p>
 					</li>
-					@if(Auth::check())
-					<li>
-						<button type="button" class="btn btn-primary">Add to cart</button>
-					</li>
+					@if($product->stock > 0)
+						<h5>Op voorraad</h5>
+						@if(Auth::check())
+							<li>
+								<a href="{{ route('pages.addToCart', ['id' => $product->id]) }}" class="btn btn-primary" role="button">Add to cart</a>
+							</li>
+						@endif
+					@else
+						<h5>Niet op voorraad</h5>
 					@endif
+
 					<li>
-						<a href="{{ URL::previous() }}" class="btn btn-secondary btn-back">Back</a>
+						<a href="/products" class="btn btn-secondary btn-back">Back</a>
 					</li>
 				</ul>
 			</div>
