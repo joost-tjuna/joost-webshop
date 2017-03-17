@@ -15,6 +15,26 @@ Route::get('/cart/{id}', [
 	'uses' =>'ProductController@addToCart',
 	'as' => 'pages.addToCart']);
 
+Route::get('/shopping-cart', [
+	'uses' =>'ProductController@getCart',
+	'as' => 'pages.shopping-cart']);
+
+Route::get('/reduce/{id}', [
+	'uses' =>'ProductController@getReduceByOne',
+	'as' => 'pages.reduceByOne']);
+
+Route::get('/remove/{id}', [
+	'uses' =>'ProductController@getRemoveItem',
+	'as' => 'pages.remove']);
+
+Route::get('/checkout', [
+	'uses' =>'ProductController@getCheckout',
+	'as' => 'checkout']);
+
+Route::post('/checkout', [ 
+	'uses' =>'ProductController@postCheckout',
+	'as' => 'checkout']);
+
 Route::get('/about-us', 'PageController@aboutUs');
 
 Route::get('/contact', 'PageController@contact');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Product;
 
 use Session;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -35,5 +36,51 @@ class ProductController extends Controller
         
         $request->session()->put('cart', $cart);
         return redirect()->back();
+    }
+
+    public function getReduceByOne($id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart'): null;
+        $cart = new Cart($oldCart);
+        $cart->reduceByOne($id);
+
+        Session::put('cart', $cart);
+        return redirect()->route('pages.shopping-cart');
+    }
+
+    public function getRemoveItem($id)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart'): null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+ 
+        Session::put('cart', $cart);
+        return redirect()->route('pages.shopping-cart');
+    }
+
+    public function getCart()
+    {
+
+        if(!Session::has('cart'))
+        {
+            return view('pages.shopping-cart', ['products' => null]);
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('pages.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+
+
+    }
+
+    public function getCheckout()
+    {
+        if(!Session::has('cart'))
+        {
+            return view('pages.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $total = $cart->totalPrice;
+        return view('pages.checkout', ['total' => $total]);
     }
 }
