@@ -30,24 +30,40 @@
   width:51%;
   display: inline-block;
   float:left;
+  margin-bottom:25px ;
 }
 
 .table-product:nth-child(even){
   width:51%;
   display: inline-block;
   float:right;
+  margin-bottom:25px;
+
 }
 
-.product-list img:nth-child(even) {
+.product-list:nth-child(odd) img{
     height: 150px;
     width: 200px;
-    margin: 0 15px 0 0;
+    float:left;
+    margin-right: 20px;
 }
 
-.product-list img:nth-child(odd) {
+.product-list:nth-child(even) img{
     height: 150px;
     width: 200px;
-    margin: 0 0 15px 0;
+    float:right;
+    margin-left: 20px;
+
+}
+
+.product-list:nth-child(even) .description{
+  display: flex;
+  text-align: right;
+
+}
+
+.product-list:nth-child(odd) .description{
+    display: flex;
 }
  
 .product-list th:hover {

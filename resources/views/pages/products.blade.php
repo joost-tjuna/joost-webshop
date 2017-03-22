@@ -10,7 +10,7 @@
 				<th>
 					<img src="{{asset('images/'.$product->picture)}}">
 					<h2>{{$product->name }}</h2>
-					<p>{{$product->description }}</p>
+					<p class="description">{{$product->description }}</p>
 					<p>€{{$product->price }}</p>
 					@if($product->stock > 0)
 						<h5>Op voorraad</h5>

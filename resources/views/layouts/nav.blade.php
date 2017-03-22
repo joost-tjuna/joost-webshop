@@ -21,7 +21,7 @@
               <ul class="navbar-nav mr-auto login">
                 @if (Auth::check())
                   <li>
-                    <a class="nav-link" href="{{ url('/shopping-cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="headerCount">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span></a>
+                    <a class="nav-link" href="{{ url('/shopping-cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="headerCount">{{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}</span></a>
                   </li>
                   <li>
                     <a class="nav-link" href="{{ url('/profiel') }}">{{Auth::user()->name}}</a>
