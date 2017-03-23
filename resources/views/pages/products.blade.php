@@ -11,11 +11,11 @@
 					<img src="{{asset('images/'.$product->picture)}}">
 					<h2>{{$product->name }}</h2>
 					<p class="description">{{$product->description }}</p>
-					<p>€{{$product->price }}</p>
+					<p class="description-price">€{{$product->price }}</p>
 					@if($product->stock > 0)
-						<h5>Op voorraad</h5>
+						<h5 class="voorraad">Op voorraad</h5>
 					@else
-						<h5>Niet op voorraad</h5>
+						<h5 class="voorraad">Niet op voorraad</h5>
 					@endif
 				</th>
 			</tr>
