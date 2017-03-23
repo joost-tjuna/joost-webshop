@@ -21,20 +21,20 @@
               <ul class="navbar-nav mr-auto login">
                 @if (Auth::check())
                   <li>
-                    <a class="nav-link" href="{{ url('/shopping-cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="headerCount">{{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}</span></a>
+                    <a class="nav-link @if(Request::is('shopping-cart')) active @endif nav-cart" href="{{ url('/shopping-cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="headerCount">{{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}</span></a>
                   </li>
                   <li>
-                    <a class="nav-link" href="{{ url('/profiel') }}">{{Auth::user()->name}}</a>
+                    <a class="nav-link" href="{{ url('/profiel') }} @if(Request::is('profiel')) active @endif">{{Auth::user()->name}}</a>
                   </li>
                   <li>
                     <a class="nav-link" href="{{ url('/logout') }}">logout</a>
                   </li>
                 @else
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/login') }}">Login</a>
+                    <a class="nav-link @if(Request::is('login')) active @endif" href="{{ url('/login') }}">Login</a>
                 </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/register') }}">Register</a>
+                    <a class="nav-link @if(Request::is('register')) active @endif" href="{{ url('/register') }}">Register</a>
                   </li>
                 @endif
               </ul>
