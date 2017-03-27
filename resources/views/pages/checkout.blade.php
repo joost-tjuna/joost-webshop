@@ -9,6 +9,7 @@
                 {{ Session::get('error') }}
             </div>
             <form action="{{ route('checkout') }}" method="post" id="checkout-form">
+            {{ csrf_field() }}
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group checkout-input">
@@ -57,7 +58,6 @@
                         </div>
                     </div>
                 </div>
-                {{ csrf_field() }}
                 <button type="submit" class="btn btn-success">Buy now</button>
             </form>
         </div>

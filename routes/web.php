@@ -35,6 +35,8 @@ Route::post('/checkout', [
 	'uses' =>'ProductController@postCheckout',
 	'as' => 'checkout']);
 
+Route::get('/admin', ['as' =>'pages.cms', 'uses' => 'PageController@admin', 'middleware' => ['auth', 'admin']]);
+
 Route::get('/about-us', 'PageController@aboutUs');
 
 Route::get('/contact', 'PageController@contact');

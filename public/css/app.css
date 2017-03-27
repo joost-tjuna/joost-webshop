@@ -1,11 +1,17 @@
 .row{
   padding-top:40px;
+
 }
 
 .navbar{
   margin-bottom:50px;
   padding-left:40px;
 }
+
+.nav-cart{
+  margin-right:13px;
+}
+
 .headerCount{
     position: absolute;
     top: 4px;
@@ -57,12 +63,21 @@
 }
 
 .product-list:nth-child(even) .description{
-  display: flex;
-  text-align: right;
-
+    display: flex;
+    text-align: right;
 }
 
 .product-list:nth-child(odd) .description{
+    display: flex;
+}
+
+.voorraad{
+    position: absolute;
+    margin-top: -38px;
+}
+
+.description-price{
+    margin-left: 50%;
     display: flex;
 }
  
@@ -134,25 +149,6 @@
 
 .checkout-input{
   margin-top: 5%;
-}
-
-.hallo-test {
-  padding: .75rem 0 .75rem 1.25rem;
-  position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: -1px;
-    background-color: #fff;
-    border: 1px solid rgba(0,0,0,.125);
 }
 
 footer{

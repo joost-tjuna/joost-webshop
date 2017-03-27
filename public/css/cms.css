@@ -1,0 +1,42 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+}
+
+/*
+ * Typography
+ */
+
+h1 {
+    margin-bottom: 20px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar-text{
+    text-align:center;
+}
+
+.cms-button{
+    float: right;
+    margin-bottom:1%;
+    margin-top:-3%;
+}
+
+.margin-title{
+    margin-top: 1%;
+}
+
+/* Placeholders */
+.placeholders {
+    padding-bottom: 3rem;
+}
+
+.placeholder img {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}

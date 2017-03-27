@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cart;
+use App\Product;
+
+use Session;
+use Auth;
 
 class PageController extends Controller
 {
@@ -32,5 +37,12 @@ class PageController extends Controller
     public function manage()
     {
         return view('pages.manage');
+    }
+
+    public function admin()
+    {
+        $products = Product::all();
+
+        return view ('pages.cms_content', compact('products'));
     }
 }
