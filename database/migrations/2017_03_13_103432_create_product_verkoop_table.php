@@ -14,8 +14,10 @@ class CreateProductVerkoopTable extends Migration
     public function up()
     {
         Schema::create('product_verkoop', function (Blueprint $table) {
-            $table->integer('verkoop_id');
-            $table->integer('product_id');
+            $table->integer('verkoop_id')->unsigned();
+            $table->integer('product_id')->unsigned();
+            $table->foreign('verkoop_id')->references('id')->on('verkoop');
+            $table->foreign('product_id')->references('id')->on('product');
         });
     }
 
