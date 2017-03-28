@@ -29,13 +29,16 @@ Route::get('/remove/{id}', [
 
 Route::get('/checkout', [
 	'uses' =>'ProductController@getCheckout',
-	'as' => 'checkout']);
+	'as' => 'checkout',
+    'middleware' => 'auth']);
 
 Route::post('/checkout', [ 
 	'uses' =>'ProductController@postCheckout',
 	'as' => 'checkout']);
 
 Route::get('/admin', ['as' =>'pages.cms', 'uses' => 'PageController@admin', 'middleware' => ['auth', 'admin']]);
+
+Route::get('/admin/new-product', ['as' =>'pages.cms_addProduct', 'uses' => 'ProductController@newProduct', 'middleware' => ['auth', 'admin']]);
 
 Route::get('/about-us', 'PageController@aboutUs');
 

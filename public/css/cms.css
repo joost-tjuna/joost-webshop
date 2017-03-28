@@ -7,6 +7,19 @@ body {
     padding-top: 50px;
 }
 
+.row{
+    margin-top:20px;
+}
+
+.cms_stock{
+    float: left;
+    margin-right: 50px;
+}
+
+.new-product{
+    margin-left: 35%;
+}
+
 /*
  * Typography
  */

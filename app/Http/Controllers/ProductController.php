@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\new_products;
+use App\Order;
 use Illuminate\Http\Request;
 use App\Product;
 
@@ -83,4 +85,42 @@ class ProductController extends Controller
         $total = $cart->totalPrice;
         return view('pages.checkout', ['total' => $total]);
     }
+
+    public function postCheckout()
+    {
+        if(!Session::has('cart')) 
+        {
+            return redirect()->route('pages.shoppingCart');
+        }
+        $oldcart = Session::get('cart');
+        $cart = new Cart('oldcart');
+
+        $order = new Order();
+        $order->cart = serialize($cart);
+        $order->total = $cart->totalPrice;
+
+        Auth::user()->orders()-save($order);
+        Session::forget('cart');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function newProduct()
+    {
+//        $art = new new_products;
+//        $art->name = '';
+//        $art->stock = '';
+//        $art->price = '';
+//        $art->picture = '';
+//        $art->description = '';
+//        $art->save();
+
+        return view('pages.cms_addProduct');
+
+    }
+
+
 }

@@ -27,11 +27,7 @@
 		</ul>
 </nav>
 
-<div class="container-fluid">
-	<div class="row">
 		@yield ('cms-content')
-	</div>
-</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
