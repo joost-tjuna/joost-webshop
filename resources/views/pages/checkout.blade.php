@@ -5,9 +5,7 @@
         <div style="margin:0 auto;" class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
             <h1>Checkout</h1>
             <h4>Your Total: ${{ $total }}</h4>
-            <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : ''  }}">
-                {{ Session::get('error') }}
-            </div>
+
             <form action="{{ route('checkout') }}" method="post" id="checkout-form">
             {{ csrf_field() }}
                 <div class="row">
@@ -58,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Buy now</button>
+                <a href="{{ route('placeOrder') }}"  class="btn btn-success">Place Order</a>
             </form>
         </div>
     </div>

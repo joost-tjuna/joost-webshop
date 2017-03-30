@@ -1,11 +1,10 @@
 <?php
 
+Route::get('test', 'ProductController@test');
 
 Route::get('/', 'PageController@index', function () {
     return view('layouts/master');
 })->name('home');
-
-Auth::routes();
 
 // Route::get('/home', 'HomeController@index');
 
@@ -32,9 +31,11 @@ Route::get('/checkout', [
 	'as' => 'checkout',
     'middleware' => 'auth']);
 
-Route::post('/checkout', [ 
-	'uses' =>'ProductController@postCheckout',
-	'as' => 'checkout']);
+Route::get('/place-order', [
+	'uses' =>'OrdersController@newSale',
+	'as' => 'placeOrder']);
+
+
 
 Route::get('/admin', ['as' =>'pages.cms', 'uses' => 'PageController@admin', 'middleware' => ['auth', 'admin']]);
 

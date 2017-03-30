@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class product extends Model
 {
 
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,4 +25,8 @@ class product extends Model
      *
      * @var array
      */
+
+
+
+
 }
