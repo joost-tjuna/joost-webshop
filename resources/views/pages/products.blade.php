@@ -8,7 +8,7 @@
 		@foreach($products as $product)
 			<tr class="table-product product-list" onclick="location.href='/products/{{$product->id}}';">
 				<th>
-					<img src="{{asset('images/'.$product->picture)}}">
+					<img src="{{asset('images/products/'.$product->picture)}}">
 					<h2>{{$product->name }}</h2>
 					<p class="description">{{$product->description }}</p>
 					<p class="description-price">€{{$product->price }}</p>

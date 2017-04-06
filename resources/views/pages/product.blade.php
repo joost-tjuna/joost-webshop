@@ -5,7 +5,7 @@
 				<ul class="product">
 					<li>
 					
-						<img class="product-image" src="{{asset('images/'.$product->picture)}}">
+						<img class="product-image" src="{{asset('images/products/'.$product->picture)}}">
 					</li>
 				</ul>
 			</div>

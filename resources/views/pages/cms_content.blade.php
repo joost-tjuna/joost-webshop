@@ -17,12 +17,12 @@
                     </tr>
                     @foreach($products as $product)
                         <tr>
-                            <th><img style="height: 80px;width: 86px;" src="{{asset('images/'.$product->picture)}}"></th>
+                            <th><img style="height: 80px;width: 86px;" src="{{asset('images/products/'.$product->picture)}}"></th>
                             <th>{{$product->name }}</th>
                             <th>{{$product->description }}</th>
                             <th>€{{$product->price }}</th>
                             <th>
-                                <a style="padding-right: 25px;" class="btn btn-secondary" href="/admin/adjust">aanpassen</a>
+                                <a style="padding-right: 25px; margin-bottom:6px;" class="btn btn-secondary" href="/admin/adjust">aanpassen</a>
                                 <a class="btn btn-secondary"href="#">Verwijderen</a>
                             </th>
                         </tr>
