@@ -45,4 +45,10 @@ class PageController extends Controller
 
         return view ('pages.cms_content', compact('products'));
     }
+
+    public function newProduct()
+    {
+        return view('pages.cms_addProduct');
+
+    }
 }

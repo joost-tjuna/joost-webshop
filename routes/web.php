@@ -41,7 +41,11 @@ Route::get('/admin', ['as' =>'pages.cms', 'uses' => 'PageController@admin', 'mid
 
 Route::get('/admin/new-product', ['as' =>'pages.cms_addProduct', 'uses' => 'pageController@newProduct', 'middleware' => ['auth', 'admin']]);
 
-Route::post('/admin/new-product', ['as' =>'pages.addProduct', 'uses' => 'cmsController@newProduct', 'middleware' => ['auth', 'admin']]);
+Route::post('/admin/new-product', ['as' =>'pages.addProduct', 'uses' => 'cmsController@store', 'middleware' => ['auth', 'admin']]);
+
+Route::get('/admin/adjust/{id}', 'cmsController@adjust');
+
+Route::get('/admin/delete/{id}', 'cmsController@delete');
 
 Route::get('/about-us', 'PageController@aboutUs');
 

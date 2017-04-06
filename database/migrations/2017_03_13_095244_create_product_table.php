@@ -21,6 +21,7 @@ class CreateProductTable extends Migration
             $table->string('picture');
             $table->string('description');
             $table->integer('maker_id');
+            $table->timestamps();
         });
     }
 
