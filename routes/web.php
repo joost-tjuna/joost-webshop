@@ -1,6 +1,5 @@
 <?php
 
-Route::get('test', 'ProductController@test');
 
 Route::get('/', 'PageController@index', function () {
     return view('layouts/master');
@@ -55,6 +54,8 @@ Route::get('/contact', 'PageController@contact');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/profiel', 'PageController@manage');
+//Route::get('/profiel', 'PageController@manage');
+Route::get('/profiel/{id}', 'usersController@manage');
+Route::post('/profiel/{id}', 'usersController@update');
 
 Auth::routes();

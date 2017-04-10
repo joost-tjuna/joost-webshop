@@ -10,14 +10,14 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{url('/profiel/'. $user->id)}}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-3 control-label">Voor + achternaam:</label>
 
                            <div class="col-md-5">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{$user->name}}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -32,7 +32,7 @@
                             <label for="streetname" class="col-md-3 control-label">Straatnaam</label>
 
                             <div class="col-md-5">
-                                <input id="streetname" type="text" class="form-control" name="streetname" required >
+                                <input id="streetname" type="text" value="{{$user->streetname}}" class="form-control" name="streetname" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -47,7 +47,7 @@
                             <label for="streetnumber" class="col-md-3 control-label">Huisnummer</label>
 
                             <div class="col-md-5">
-                                <input style="width:70px;" id="streetnumber" type="number" class="form-control" name="streetnumber" required >
+                                <input style="width:70px;" id="streetnumber" value="{{$user->streetnumber}}" type="number" class="form-control" name="streetnumber" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -62,7 +62,7 @@
                             <label for="zipcode" class="col-md-3 control-label">Postcode</label>
 
                             <div class="col-md-5">
-                                <input id="zipcode" type="text" class="form-control" name="zipcode" required >
+                                <input id="zipcode" value="{{$user->zipcode}}" type="text" class="form-control" name="zipcode" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -77,7 +77,7 @@
                             <label for="abode" class="col-md-3 control-label">Woonplaats</label>
 
                             <div class="col-md-5">
-                                <input id="abode" type="text" class="form-control" name="abode" required >
+                                <input id="abode" value="{{$user->abode}}" type="text" class="form-control" name="abode" required >
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -91,7 +91,7 @@
                         <div class="register-label form-group">
                             <label for="phonenumber" class="col-md-3 control-label">Telefoon nummer</label>
                               <div class="col-md-5">
-                                 <input id="phonenumber" type="number" class="form-control" name="phonenumber" required >
+                                 <input id="phonenumber" value="{{$user->phonenumber}}" type="number" class="form-control" name="phonenumber" required >
 
                                  @if ($errors->has('name'))
                                     <span class="help-block">
@@ -106,7 +106,7 @@
                             <label for="email" class="col-md-3 control-label">E-Mail Adres</label>
 
                             <div class="col-md-5">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{$user->email}}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -121,7 +121,7 @@
                             <label for="password" class="col-md-3 control-label">Wachtwoord</label>
 
                             <div class="col-md-5">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" >
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -135,7 +135,7 @@
                             <label for="password-confirm" class="col-md-3 control-label">Herhaal wachtwoord</label>
 
                             <div class="col-md-5">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
                             </div>
                         </div>
 
