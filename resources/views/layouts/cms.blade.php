@@ -18,11 +18,25 @@
 </head>
 
 <body>
+@if ($flash = session('message'))
+	<div id="flash-message" class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		{{ $flash }}
+
+	</div>
+@endif
+@if (session()->has('flash_notification.message'))
+	<div class="alert alert-{{ session('flash_notification.level') }}">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+		{!! session('flash_notification.message') !!}
+	</div>
+@endif
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
 		<h4 style="margin-left:38%;" class="navbar-brand" >Tjuna Dashboard</h4>
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a style="padding-top:0;" class="nav-link" href="/">To the webshop <span class="sr-only">(current)</span></a>
+				<a style="padding-top:0;" class="nav-link" href="/">To the webshop<span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
 </nav>

@@ -26,7 +26,8 @@
 							<li>
 								<a href="{{ route('pages.addToCart', ['id' => $product->id]) }}" class="btn btn-primary" role="button">Add to cart</a>
 							</li>
-						@endif
+
+								@endif
 					@else
 						<h5>Niet op voorraad</h5>
 					@endif
