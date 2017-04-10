@@ -12,6 +12,18 @@ use Redirect;
 use Session;
 class cmsController extends Controller
 {
+    public function index()
+    {
+        $products = Product::all();
+
+        return view ('cms.cms_content', compact('products'));
+    }
+
+    public function newProduct()
+    {
+        return view('cms.cms_addProduct');
+
+    }
 
     public function store(Request $request)
     {
@@ -20,7 +32,7 @@ class cmsController extends Controller
             'stock' => 'required',
             'price' => 'required',
             'picture' => 'required|image|mimes:jpeg,bmp,png',
-            'description' => 'required|max:190'
+            'description' => 'required|max:501'
 
         ]);
 
@@ -29,6 +41,7 @@ class cmsController extends Controller
         $newProduct['picture'] = $file ;
         $newProduct =  Product::create($newProduct);
 
+        session()->flash('message', 'Product successfully added');
 
        return redirect('/admin');
 
@@ -37,11 +50,40 @@ class cmsController extends Controller
 
     public function delete($id)
     {
-        $product = App\Product::find($id);
+        $product = Product::where('id', $id);
 
         $product->delete();
 
+        flash('Product has been deleted', 'success');
+
         return back();
+    }
+
+    public function adjust($id)
+    {
+        $product = Product::find($id);
+
+        return view('cms.cms_adjust', compact('product'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $update = Product::find($id);
+
+        $product = request(['name', 'stock', 'price', 'picture', 'description']);
+        $update->name = $product['name'];
+        $update->stock = $product['stock'];
+        $update->price = $product['price'];
+        if($product['picture']) {
+            unlink(public_path() .'/images/'. $update->picture);
+            $file = $request->file('picture')->store('products', 'uploads');
+            $update->picture = $file;
+        }
+        $update->description = $product['description'];
+
+
+        $update->save();
+        return redirect('/admin');
     }
 
 }

@@ -37,13 +37,15 @@ Route::get('/place-order', [
 
 
 
-Route::get('/admin', ['as' =>'pages.cms', 'uses' => 'PageController@admin', 'middleware' => ['auth', 'admin']]);
+Route::get('/admin', ['as' =>'pages.cms', 'uses' => 'cmsController@index', 'middleware' => ['auth', 'admin']]);
 
-Route::get('/admin/new-product', ['as' =>'pages.cms_addProduct', 'uses' => 'pageController@newProduct', 'middleware' => ['auth', 'admin']]);
+Route::get('/admin/new-product', ['as' =>'pages.cms_addProduct', 'uses' => 'cmsController@newProduct', 'middleware' => ['auth', 'admin']]);
 
 Route::post('/admin/new-product', ['as' =>'pages.addProduct', 'uses' => 'cmsController@store', 'middleware' => ['auth', 'admin']]);
 
-Route::get('/admin/adjust/{id}', 'cmsController@adjust');
+Route::get('/admin/update/{id}', 'cmsController@adjust');
+
+Route::post('/admin/update/{id}', 'cmsController@update');
 
 Route::get('/admin/delete/{id}', 'cmsController@delete');
 
