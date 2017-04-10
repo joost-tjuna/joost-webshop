@@ -19,14 +19,14 @@
 
 <body>
 @if ($flash = session('message'))
-	<div id="flash-message" class="alert alert-success" role="alert">
+	<div style="margin-top: 12px;" id="flash-message" class="alert alert-success" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 		{{ $flash }}
 
 	</div>
 @endif
 @if (session()->has('flash_notification.message'))
-	<div class="alert alert-{{ session('flash_notification.level') }}">
+	<div style="margin-top: 12px;" class="alert alert-{{ session('flash_notification.level') }}">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
 		{!! session('flash_notification.message') !!}

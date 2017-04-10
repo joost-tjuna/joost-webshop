@@ -1,10 +1,3 @@
-@if (session()->has('flash_notification.message'))
-    <div class="alert alert-{{ session('flash_notification.level') }}">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-        {!! session('flash_notification.message') !!}
-    </div>
-@endif
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +24,7 @@
                     <a class="nav-link @if(Request::is('shopping-cart')) active @endif nav-cart" href="{{ url('/shopping-cart') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="headerCount">{{ Session::has('cart') ? Session::get('cart')->totalQty : '0' }}</span></a>
                   </li>
                   <li>
-                    <a class="nav-link" href="{{ url('/profiel') }} @if(Request::is('profiel')) active @endif">{{Auth::user()->name}}</a>
+                    <a class="nav-link" href="{{ url('/profiel/'.Auth::user()->id) }} @if(Request::is('profiel')) active @endif">{{Auth::user()->name}}</a>
                   </li>
                   <li>
                     <a class="nav-link" href="{{ url('/logout') }}">logout</a>
@@ -46,7 +39,15 @@
                 @endif
               </ul>
           @endif
+
         </ul>
+          @if (session()->has('flash_notification.message'))
+              <div class="alert alert-{{ session('flash_notification.level') }} flash">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                  {!! session('flash_notification.message') !!}
+              </div>
+      @endif
         <!-- <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

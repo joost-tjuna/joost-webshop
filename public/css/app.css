@@ -12,6 +12,14 @@
   margin-right:13px;
 }
 
+.flash{
+    position: absolute;
+    margin-top: 48px;
+    left: 0;
+    right: 0;
+}
+
+
 .headerCount{
     position: absolute;
     top: 4px;

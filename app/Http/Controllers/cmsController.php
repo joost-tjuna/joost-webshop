@@ -41,7 +41,7 @@ class cmsController extends Controller
         $newProduct['picture'] = $file ;
         $newProduct =  Product::create($newProduct);
 
-        session()->flash('message', 'Product successfully added');
+        session()->flash('message', 'Product toevoegen is geslaagd ');
 
        return redirect('/admin');
 
@@ -54,7 +54,7 @@ class cmsController extends Controller
 
         $product->delete();
 
-        flash('Product has been deleted', 'success');
+        flash('Product is verwijderd', 'success');
 
         return back();
     }
@@ -81,7 +81,7 @@ class cmsController extends Controller
         }
         $update->description = $product['description'];
 
-
+        flash('Product is geüpdatet', 'success');
         $update->save();
         return redirect('/admin');
     }

@@ -28,6 +28,7 @@ class OrdersController extends Controller
             $order->products()->attach($key, ['qty'=> $value['qty']]);
         }
 
+        flash('Bestelling is geplaatst', 'success');
         Session::forget('cart');
         return redirect('/');
     }

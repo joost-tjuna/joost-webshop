@@ -68,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
+        flash('Welkom '. $data['name'], 'success');
         return User::create([
             'name' => $data['name'],
             'streetname' => $data['streetname'],
