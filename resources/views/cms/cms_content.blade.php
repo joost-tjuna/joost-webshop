@@ -23,7 +23,7 @@
                             <th>€{{$product->price }}</th>
                             <th>
                                 <a style="padding-right: 25px; margin-bottom:6px;" class="btn btn-secondary" href="/admin/update/{{$product->id}}">aanpassen</a>
-                                <a class="btn btn-secondary"href="/admin/delete/{{$product->id}}">Verwijderen</a>
+{{--                                <a class="btn btn-danger"href="/admin/delete/{{$product->id}}">Verwijderen</a>--}}
                             </th>
                         </tr>
                     @endforeach
