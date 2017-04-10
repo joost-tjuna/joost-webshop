@@ -11,7 +11,7 @@
             <div class="carousel-caption d-none d-md-block text-left">
               <h1>Example headline.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/register" role="button">Sign up today</a></p>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="carousel-caption d-none d-md-block">
               <h1>Another example headline.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/about-us" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="carousel-caption d-none d-md-block text-right">
               <h1>One more for good measure.</h1>
               <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <p><a class="btn btn-lg btn-primary" href="/products" role="button">Browse gallery</a></p>
             </div>
           </div>
         </div>
