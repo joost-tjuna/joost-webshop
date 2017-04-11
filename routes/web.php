@@ -1,11 +1,7 @@
 <?php
+Route::get('/', 'PageController@index')->name('home');
+//Route::get('/home', 'PageController@index');
 
-
-Route::get('/', 'PageController@index', function () {
-    return view('layouts/master');
-})->name('home');
-
-// Route::get('/home', 'HomeController@index');
 
 Route::get('/products', 'ProductController@index');
 Route::get('/products/{id}', 'ProductController@show');
