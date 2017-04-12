@@ -1,6 +1,6 @@
 <?php
 Route::get('/', 'PageController@index')->name('home');
-//Route::get('/home', 'PageController@index');
+Route::get('/home', 'PageController@index');
 
 
 Route::get('/products', 'ProductController@index');
