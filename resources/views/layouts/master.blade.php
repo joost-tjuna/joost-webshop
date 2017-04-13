@@ -9,9 +9,11 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Webshop</title>
-
+  @include('layouts.nav')
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
     <!-- Custom styles for this template -->
     <link href="/css/carousel.css" rel="stylesheet">
@@ -19,7 +21,7 @@
   </head>
   <body>
 
-    @include('layouts.nav')
+
     
     
 

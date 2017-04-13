@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use App\Cart;
+use App\Product;
+
+use Session;
+use Auth;
 
 class PageController extends Controller
 {
@@ -16,6 +22,7 @@ class PageController extends Controller
 
     public function index()
     {
+
         return view('pages.content');
     }
 
@@ -28,4 +35,6 @@ class PageController extends Controller
     {
         return view('pages.product');
     }
+
+
 }
