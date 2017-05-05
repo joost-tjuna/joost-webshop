@@ -46,7 +46,7 @@
                                 <label for="Picture" class="col-md-3 control-label">Picture</label>
 
                                 <div class="col-md-6">
-                                    <img style="height: 80px;width: 86px; position: absolute; margin-left: 66%; margin-top: -9%;" src="{{asset('images/'.$product->picture)}}">
+                                    <img style="height: 80px;width: 86px; position: absolute; margin-left: 66%; margin-top: -9%;" src="{{asset($picture)}}">
                                     <input type="file" name="picture" id="picture"/>
                                 </div>
 

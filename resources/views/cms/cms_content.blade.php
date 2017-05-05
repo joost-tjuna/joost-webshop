@@ -17,7 +17,7 @@
                     </tr>
                     @foreach($products as $product)
                         <tr>
-                            <th><img style="height: 80px;width: 86px;" src="{{asset('images/'.$product->picture)}}"></th>
+                            <th><img style="height: 80px;width: 86px;" src="{{asset($product['picture_url'])}}"></th>
                             <th>{{$product->name }}</th>
                             <th>{{$product->description }}</th>
                             <th>€{{$product->price }}</th>

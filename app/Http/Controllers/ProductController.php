@@ -8,6 +8,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use App\Product;
 
+use Illuminate\Support\Facades\Storage;
 use Session;
 use Auth;
 
@@ -17,14 +18,18 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
+        foreach($products as $product){
+            $product->picture_url = Storage::url($product->picture);
+        }
         return view ('pages.products', compact('products'));
     }
 
     public function show($id)
     {
     	$product = Product::find($id);
+    	$picture = Storage::url($product->picture);
 
-        return view('pages.product', compact('product'));
+        return view('pages.product', compact('product', 'picture'));
     }
 
     public function addToCart(Request $request, $id)

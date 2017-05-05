@@ -6,6 +6,7 @@ use App\Product;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 use Input;
 use Validator;
 use Redirect;
@@ -16,6 +17,9 @@ class cmsController extends Controller
     {
         $products = Product::all();
 
+        foreach($products as $product){
+            $product->picture_url = Storage::url($product->picture);
+        }
         return view ('cms.cms_content', compact('products'));
     }
 
@@ -36,8 +40,10 @@ class cmsController extends Controller
 
         ]);
 
-        $newProduct =  request(['name', 'stock', 'price', 'picture', 'description']);
-        $file = $request->file('picture')->store('products', 'uploads');
+        $newProduct =  request(['name', 'stock', 'picture', 'price', 'description']);
+
+//       $file = $request->file('picture')->store('products', 'uploads');
+        $file = Storage::disk(env('STORAGE_DRIVER'))->put('public/products', $request->picture);
         $newProduct['picture'] = $file ;
         $newProduct =  Product::create($newProduct);
 
@@ -62,8 +68,9 @@ class cmsController extends Controller
     public function adjust($id)
     {
         $product = Product::find($id);
+        $picture = Storage::url($product->picture);
 
-        return view('cms.cms_adjust', compact('product'));
+        return view('cms.cms_adjust', compact('product', 'picture'));
     }
 
     public function update(Request $request, $id)
@@ -75,8 +82,8 @@ class cmsController extends Controller
         $update->stock = $product['stock'];
         $update->price = $product['price'];
         if($product['picture']) {
-            unlink(public_path() .'/images/'. $update->picture);
-            $file = $request->file('picture')->store('products', 'uploads');
+            Storage::delete($update->picture);
+            $file = Storage::disk(env('STORAGE_DRIVER'))->put('public/products', $request->picture);
             $update->picture = $file;
         }
         $update->description = $product['description'];
