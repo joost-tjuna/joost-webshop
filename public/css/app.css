@@ -74,14 +74,10 @@
 
 }
 
-.product-list:nth-child(even) .description{
+.product-list .description{
     display: flex;
-    text-align: right;
 }
 
-.product-list:nth-child(odd) .description{
-    display: flex;
-}
 
 .voorraad{
     position: absolute;
