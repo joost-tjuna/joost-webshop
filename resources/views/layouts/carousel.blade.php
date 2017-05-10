@@ -6,7 +6,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-          <img class="first-slide" src="images/skyline.jpg" alt="First slide">
+          <img class="first-slide" src="images/skyline.jpeg" alt="First slide">
           <div class="container">
             <div class="carousel-caption d-none d-md-block text-left">
               <h1>Example headline.</h1>
@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img class="second-slide" src="images/skyline2.jpg" alt="Second slide">
+          <img class="second-slide" src="images/skyline2.jpeg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption d-none d-md-block">
               <h1>Another example headline.</h1>
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img class="third-slide" src="images/skyline.jpg" alt="Third slide">
+          <img class="third-slide" src="images/skyline.jpeg" alt="Third slide">
           <div class="container">
             <div class="carousel-caption d-none d-md-block text-right">
               <h1>One more for good measure.</h1>
