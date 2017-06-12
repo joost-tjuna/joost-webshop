@@ -17,8 +17,8 @@
           <p><a class="btn btn-secondary" href="/products" role="button">view products &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="rounded-circle" src="images/cat.jpg" alt="Generic placeholder image" width="140" height="140">
-          <h2>Heading</h2>
+            <img class="rounded-circle" src="images/cat.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>Heading</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-secondary" href="/products" role="button">view products &raquo;</a></p>
         </div><!-- /.col-lg-4 -->

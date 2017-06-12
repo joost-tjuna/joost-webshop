@@ -32,6 +32,7 @@
 
     <div class="container marketing">
 
+    <!-- everything on the page comes here -->
     @yield ('content')
 
       <hr class="featurette-divider">
